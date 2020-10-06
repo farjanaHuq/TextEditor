@@ -11,35 +11,35 @@
  * HINT: Use the onkeydown function inside HTML
  */
 function updateText(){
-    // CODE GOES HERE
-  }
+   var text = document.getElementById('text-input').value;
+   document.getElementById('text-output').innerText = text;
+}
   
   /**
-   * Toggle the bold class for the output text
-   * HINT: Use the onclick function insite HTML
-   * HINT: Look into using this keyword
-   * HINT: Use the classList property
-   * HINT: Toggle .active class for the button
-   */
+   * Toggle the bold class for the output text */
   function makeBold(elem){
-    //CODE GOES HERE
+      elem.classList.toggle('active');
+      document.getElementById('text-output').classList.toggle('bold');
   }
   
   /**
-   * Toggle the italic class for the output text
-   */
+   * Toggle the italic class for the output text */
   function makeItalic(elem){
+      elem.classList.toggle('active');
+      document.getElementById('text-output').classList.toggle('italic');
   }
   
   /**
-   * Toggle the underline class for the output text
-   * HINT: Toggle the .active class for the button
-   * HINT: Use the classList property
-   * HINT: Use contains, remove, and add functions
-   */
+   * Toggle the underline class for the output text */
   function makeUnderline(elem){
-      //CODE GOES HERE
-  }
+      elem.classList.toggle('active');
+      let formattedText = document.getElementById('text-output');
+      if(formattedText.classList.contains('underline')){
+          formattedText.classList.remove('underline');
+      }else{
+          formattedText.classList.add('underline');
+      }     
+    }
   
   /**
    * Toggle the style textAlign attribute
@@ -48,5 +48,11 @@ function updateText(){
    * HINT: Make sure to untoggle the active state for all other align buttons
    */
   function alignText(elem, alignType){
-    // CODE GOES HERE
+     elem.classList.toggle('active');
+     document.getElementById('text-output').style.textAlign = alignType;
+     let buttonList = document.getElementsByClassName('align');
+     for(let button of buttonList){
+         button.classList.remove('active');
+     }
+     elem.classList.add('active');
   }
